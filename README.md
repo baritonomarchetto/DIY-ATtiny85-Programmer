@@ -1,6 +1,9 @@
 # DIY-ATtiny85-Programmer
 These microcontrollers comes handy when space is limited, isn't that? But how annoying is to wire the UNO-ISP every time we want to upload a sketch? We need a simple-but-effective tool in our box to speed up the process and give the fun a fast kick!
 
+![IMG_20251229_104452_mod](https://github.com/user-attachments/assets/6b2dfb60-1f0c-4482-ba7b-30f29de9f5c1)
+
+
 # Intro
 ATtiny85 is a small but powerful microcontroller from Microchip Technology. Six pins, built-in 10-bit ADC, SPI or I2C communication ready, 5V logic, and dimensioned like a dual op-amp, this chip is an ideal choice when "MCU magik" has to be performed, but limited space is available.
 
@@ -67,6 +70,12 @@ The on-board LED gives visual feedback about the presence of 5V at ATtiny85 Vcc 
 There are two capacitors on board. The ceramic is used to stabilize the 5V line; the electrolitic is used to prevent the UNO from resetting while programming the tiny.
 
 # How to Program
+
+<img width="1024" height="768" alt="IMG_20251229_104601_green_mod" src="https://github.com/user-attachments/assets/c5057441-40e3-4ba8-89b0-810396c12691" />
+
+<img width="1024" height="768" alt="IMG_20251229_104621_red_mod" src="https://github.com/user-attachments/assets/521d9598-6906-4e6d-8808-4d5f3f92b82a" />
+
+
 ## 1: Turn Your Arduino UNO into a Programmer
 The first step is to configure your Arduino UNO to work as an ISP:
 
@@ -96,6 +105,9 @@ Note: Burn the bootloader each time you upload a new sketch.
 
 # Acknowledgments
 Many thanks to the nice girls and guys at [JLCPCB](https://jlcpcb.com/?from=IAT) for sponsoring PCBs manufacturing for this project.
+
+![IMG_20251229_112402_mod](https://github.com/user-attachments/assets/1e371dd8-0925-4fb9-bff7-86fcbc4164c6)
+
 
 In this run of PCB's they also manufactured some preliminary board for the very next project: a multi FX guitar pedal (stay tuned ;))
 
