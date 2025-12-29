@@ -18,3 +18,91 @@ Being that I make use of ATtiny85 in my projects (audio mixer module and a forth
 
 PS: yes, I know: there are various UNO shields for ATtiny85 programming, but this-is-mine ;)
 
+# Supplies
+1x "Another ATtiny85 Programmer Shield" PCB
+
+1x Arduino UNO
+
+2X 10uF capacitor (electrolitic)
+
+1x 100nF capacitor ( non polarized, 104)
+
+1x LED, 3mm
+
+1x 2K ohm resistor
+
+1x ON/ON switch (single pole, double throw SPDT)
+
+1x ZIF socket (16 pins)
+
+# Hardware
+To turn a UNO into an ATtiny programmer only few boundary elements are in the need. A barebone programming environment is made by the UNO itself, a DIP-8 socket and 6 wires in total.
+
+This shield follows the common, default wiring, here reported for completeness:
+
+(please notice that UNO pinout refers to silk screened pin numbers, while ATtiny pinout refers to package pin numbers)
+
+Arduino UNO → ATtiny85
+
+5V → Pin 8 (Vcc)
+
+GND → Pin 4 (Gnd)
+
+D13 → Pin 7 (SCK)
+
+D12 → Pin 6 (MISO)
+
+D11 → Pin 5 (MOSI)
+
+D10 → Pin 1 (Reset)
+
+The choice for ZIF socket comes from the possibility to remove the ATtiny85 without the need to unplug the power every time you want to test the micro with it's fresh sketch uploaded. This is instead necessary to avoid the risk of shorts when a DIP-8 socket is adopted (most of the time the IC removing tool of choice is a small screw driver).
+
+ZIF-4 are not commercialized, so I had to use a bigger ZIF (16 pin ZIF), shorting the unused pins to ground.
+
+The PCB is compatible with DIP-8 socket, if you only have those around. User can disable power to the chip through the on-board ON/OFF switch. Switching the power off before removing the chip is not entirely necessary with a ZIF socket.
+
+The on-board LED gives visual feedback about the presence of 5V at ATtiny85 Vcc input.
+
+There are two capacitors on board. The ceramic is used to stabilize the 5V line; the electrolitic is used to prevent the UNO from resetting while programming the tiny.
+
+# How to Program
+## 1: Turn Your Arduino UNO into a Programmer
+The first step is to configure your Arduino UNO to work as an ISP:
+
+Open the Arduino IDE.
+Connect your Arduino UNO to your PC.
+Go to File -> Examples -> ArduinoISP and open the ArduinoISP.ino example.
+Upload the ArduinoISP sketch to your Arduino UNO.
+
+## 2: Upload the Sketch
+Select the appropriate microcontroller and clock source:
+
+Go to Tools -> Board and select "AttinyCore -> ATtiny45/85 Optiboot".
+Under Tools -> Clock Source, select "8MHz Internal" (this should already be set by default, but double-check).
+Open the sketch you want to upload.
+
+Now, go to Tools -> Programmer and select "Arduino as ISP".
+
+Burn the bootloader:
+
+Go to Tools -> Burn Bootloader.
+Upload the sketch:
+
+Select Sketch -> Upload Using Programmer
+Don't use the arrow on the upper left or you wil reprogram your UNO instead of you ATtiny!
+
+Note: Burn the bootloader each time you upload a new sketch.
+
+# Acknowledgments
+Many thanks to the nice girls and guys at [JLCPCB](https://jlcpcb.com/?from=IAT) for sponsoring PCBs manufacturing for this project.
+
+In this run of PCB's they also manufactured some preliminary board for the very next project: a multi FX guitar pedal (stay tuned ;))
+
+JLCPCB is a high-tech manufacturer specialized in the production of high-reliable and cost-effective PCBs. They offer a flexible PCB assembly service with a huge library of more than 600.000 components in stock at today.
+
+3D printing is part of their portfolio of services so one could create a full finished product, all in one place!
+
+What about nano-coated stencils for your SMD projects? You can take advantage of a coupon and test it for free in these days.
+
+By registering at JLCPCB site via [THIS LINK](https://jlcpcb.com/?from=IAT) (affiliated link) you will receive a series of coupons for your orders. Registering costs nothing, so it could be the right opportunity to give their service a due try ;)
